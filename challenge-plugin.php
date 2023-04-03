@@ -11,8 +11,6 @@
  * @package ChallengePlugin
  */
 
-
-
 defined( 'ABSPATH' ) || exit;
 
 // Define the plugin's root file and folder paths.
@@ -24,12 +22,10 @@ define( 'CHALLENGE_PLUGIN_URL', plugin_dir_url( CHALLENGE_PLUGIN_FILE ) );
 // Load the autoloader.
 require_once CHALLENGE_PLUGIN_DIR . 'autoloader.php';
 
-// Instantiate plugin classes
+// Instantiate plugin classes.
 new ChallengePlugin\Admin_Page();
 new ChallengePlugin\Shortcode();
 new ChallengePlugin\Ajax_Handler();
 new ChallengePlugin\WP_CLI_Commands();
-//new ChallengePlugin\TableData();
-//new ChallengePlugin\UnitTests();
 
 
