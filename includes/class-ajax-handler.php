@@ -30,10 +30,13 @@ class Ajax_Handler {
      */
     public function get_data( $no_ajax = false ) {
         $data = self::get_cached_data();
-
+        
         if ( ! empty( $data ) && true !== $no_ajax ) {
             wp_send_json_success( $data );
         }
+        if ( ! empty( $data ) && true === $no_ajax ) {
+            return $data;
+        }        
 
         $response = wp_remote_get( 'http://api.strategy11.com/wp-json/challenge/v1/1' );
         if ( is_wp_error( $response )  && true !== $no_ajax ) {

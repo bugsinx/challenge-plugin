@@ -21,19 +21,21 @@ class Admin_Page {
     }
 
     public function render() {
-        wp_enqueue_script( 'admin', CHALLENGE_PLUGIN_URL . 'js/admin.js', array(), CHALLENGE_PLUGIN_VERSION, true );
+        wp_enqueue_script( 'challenge-admin-js', CHALLENGE_PLUGIN_URL . 'js/admin.js', array(), CHALLENGE_PLUGIN_VERSION, true );
+        wp_enqueue_style( 'challenge-admin-css', CHALLENGE_PLUGIN_URL . 'css/admin.css', array(), CHALLENGE_PLUGIN_VERSION, 'all' );
 ?>
+<div class="frm_wrap">
 <div id="frm_top_bar" class="frm_nav_bar">
 	<a href="#" class="frm-header-logo">
-        <img src="<?php echo CHALLENGE_PLUGIN_URL; ?>images/logo.svg" alt="" width="30px">
+        <img src="<?php echo CHALLENGE_PLUGIN_URL; ?>images/logo.svg" alt="" width="35px">
     </a>
 	<div class="frm_top_left">
 		<h1>
-			Challenge Plugin
+        API Table
         </h1>
 	</div>
-    <div>
-        <button id="refresh-data" class="button"> Refresh Data </button>
+    <div id="frm-publishing">
+        <button id="refresh-data" class="button frm-button-secondary frm_animate_bg"> Refresh Data </button>
     </div>        
 </div>
 <hr>
@@ -44,7 +46,7 @@ class Admin_Page {
             $table->display();
         
 
-        echo '</div>';
+        echo '</div></div>';
     }   
 
     public function register() {
